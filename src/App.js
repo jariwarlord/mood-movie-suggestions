@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './components/styles/App.css';
 import MovieSuggestions from './components/MovieSuggestions';
+import logo from './popcorn.webp'
 
 const App = () => {
   const [mood, setMood] = useState('');
@@ -17,7 +18,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Film Önerisi için Modunu Yaz</h1>
+      <h1>
+      <img src={logo} alt="Logo" style={{ width: '50px', height: 'auto', marginRight: '10px' }} />
+        Film Önerisi için Modunu Yaz
+        </h1>
       <h3>Nasıl hissediyorsun?</h3>
       <input
         type="text"

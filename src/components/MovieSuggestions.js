@@ -32,6 +32,12 @@ const MovieSuggestions = ({ mood }) => {
       movies = movieSuggestions.rastgele;
     } else if (mood.toLowerCase() === 'anime') {
         movies = movieSuggestions.anime;
+    } else if (mood.toLowerCase() === 'dram') {
+        movies = movieSuggestions.dram;    
+    } else if (mood.toLowerCase() === 'bilimkurgu') {
+        movies = movieSuggestions.bilimkurgu;
+    } else if (mood.toLowerCase() === 'romantizm') {
+        movies = movieSuggestions.romantizm;           
     } else {
       setError('Lütfen geçerli bir mod yazın (mutlu, hüzünlü, aksiyon, rastgele).');
       return;

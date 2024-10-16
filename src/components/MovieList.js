@@ -60,7 +60,7 @@ const movieSuggestions = {
         'Always Be My Maybe', 'Love Actually', 'Sleepless in Seattle',
         'Before Sunrise', 'The Vow'
     ],
-    bilimKurgu: [
+    bilimkurgu: [
         'Inception', 'The Matrix', 'Interstellar', 
         'Blade Runner 2049', 'The Fifth Element', 'Arrival',
         'Ex Machina', 'Minority Report', 'Eternal Sunshine of the Spotless Mind',

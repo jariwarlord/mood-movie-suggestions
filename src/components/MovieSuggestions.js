@@ -42,6 +42,16 @@ const MovieSuggestions = ({ mood }) => {
       'Butter Fly Effect', 'Hocus Pocus', "Dude Where's my Car", 'Tommy Boy', 'The Passion of the Christ',
       'Naked', 'John Carter', 'Empire of the Sun' 
     ],
+    anime: [
+        'Attack on Titan', 'My Hero Academia', 'Naruto', 'One Piece', 'Death Note',
+        'Fullmetal Alchemist: Brotherhood', 'Demon Slayer: Kimetsu no Yaiba', 
+        'Sword Art Online', 'Hunter x Hunter', 'Dragon Ball Z',
+        'Neon Genesis Evangelion', 'Spirited Away', 'Your Name', 
+        'Cowboy Bebop', 'One Punch Man', 'Jujutsu Kaisen',
+        'Tokyo Ghoul', 'Bleach', 'Fairy Tail', 'Mob Psycho 100',
+        'The Promised Neverland', 'Fate/Zero', 'Steins;Gate', 'Made in Abyss'
+    ],
+    
   };
 
   useEffect(() => {
@@ -62,6 +72,8 @@ const MovieSuggestions = ({ mood }) => {
       movies = movieSuggestions.aksiyon;
     } else if (mood.toLowerCase() === 'rastgele') {
       movies = movieSuggestions.rastgele;
+    } else if (mood.toLowerCase() === 'anime') {
+        movies = movieSuggestions.anime;
     } else {
       setError('Lütfen geçerli bir mod yazın (mutlu, hüzünlü, aksiyon, rastgele).');
       return;

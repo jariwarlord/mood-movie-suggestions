@@ -20,12 +20,12 @@ const App = () => {
       <h1>Film Önerisi için Modunu Yaz</h1>
       <input
         type="text"
-        placeholder="Enter your mood"
+        placeholder="'Aksiyon','Rastgele' .."
         value={mood}
         onChange={handleInputChange}
       />
       <br />
-      <button onClick={handleSubmit}>Yolla ve Öneriyi Getir</button>
+      <button onClick={handleSubmit}>Yolla</button>
       {submittedMood && <MovieSuggestions mood={submittedMood} />}
     </div>
   );

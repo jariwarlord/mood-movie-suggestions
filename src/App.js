@@ -16,13 +16,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Mood-Based Movie Suggestions</h1>
+      <h1>Film Önerisi için Modunu Yaz</h1>
       <input
         type="text"
         placeholder="Enter your mood"
         value={mood}
         onChange={handleInputChange} // Mood inputu değişimini takip ediyoruz
-      />
+      /> <br></br>
       <button onClick={handleSubmit}>
         Yolla ve Öneriyi Getir
       </button>

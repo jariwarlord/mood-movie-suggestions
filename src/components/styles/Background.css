@@ -1,0 +1,12 @@
+/* styles/Background.css */
+
+.background {
+    position: fixed; /* Sabit bir arka plan */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: background-image 0.5s ease; /* Geçiş efektleri */
+    z-index: -1; /* İçeriklerin arkasında olmasını sağlamak için */
+  }
+  

@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import './App.css';
 import MovieSuggestions from './components/MovieSuggestions';
@@ -7,11 +8,11 @@ const App = () => {
   const [submittedMood, setSubmittedMood] = useState('');
 
   const handleInputChange = (event) => {
-    setMood(event.target.value); // Kullanıcıdan mood'u alıyoruz
+    setMood(event.target.value);
   };
 
   const handleSubmit = () => {
-    setSubmittedMood(mood); // Mood'u öneriye göndermek için ayarlıyoruz
+    setSubmittedMood(mood);
   };
 
   return (
@@ -21,13 +22,10 @@ const App = () => {
         type="text"
         placeholder="Enter your mood"
         value={mood}
-        onChange={handleInputChange} // Mood inputu değişimini takip ediyoruz
-      /> <br></br>
-      <button onClick={handleSubmit}>
-        Yolla ve Öneriyi Getir
-      </button>
-
-      {/* MovieSuggestions componenti mood gönderildikten sonra gösterilir */}
+        onChange={handleInputChange}
+      />
+      <br />
+      <button onClick={handleSubmit}>Yolla ve Öneriyi Getir</button>
       {submittedMood && <MovieSuggestions mood={submittedMood} />}
     </div>
   );

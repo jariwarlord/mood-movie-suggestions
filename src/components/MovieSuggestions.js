@@ -1,5 +1,9 @@
 import './styles/MovieSuggestions.css';
 import React, { useState, useEffect } from 'react';
+import Movie from './Movie';
+import Error from './Error';
+import Background from './Background'; // Background bileşenini ekleyin
+
 
 const API_KEY = '69b08da2'; // API anahtarınızı buraya ekleyin
 
@@ -110,19 +114,20 @@ const MovieSuggestions = ({ mood }) => {
 
   return (
     <div>
-      {error && <h2 style={{ color: 'red' }}>{error}</h2>}
-      {movie ? (
-        <div>
-          <h2>Önerilen Film: {movie.title}</h2>
-          <h3>IMDB Puanı: {movie.imdb}</h3> <button onClick={handleGetNewSuggestion}>Yeni Öneri Al</button><br></br>
-          <img src={movie.img} alt={movie.title} />
-                   
-        </div>
-      ) : (
-        <h2>Film önerisi alınıyor...</h2>
-      )}
+        <Background movie={movie} /> {/* Film arka planı bileşeni */}
+        {error && <h2 style={{ color: 'red' }}>{error}</h2>}
+        {movie ? (
+            <div>
+                <h2>Önerilen Film: {movie.title}</h2>
+                <button onClick={handleGetNewSuggestion}>Yeni Öneri Al</button>
+                <h3>IMDB Puanı: {movie.imdb}</h3>
+                <img src={movie.img} alt={movie.title} />
+            </div>
+        ) : (
+            <h2>Film önerisi alınıyor...</h2>
+        )}
     </div>
-  );
+);
 };
 
 export default MovieSuggestions;

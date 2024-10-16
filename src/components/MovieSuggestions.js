@@ -29,10 +29,18 @@ const MovieSuggestions = ({ mood }) => {
       'If Beale Street Could Talk', 'Lion'
     ],
     aksiyon: [
-      'Mad Max: Fury Road', 'Die Hard', 'John Wick', 'Venom', 'Blade Runner'
+        'Mad Max: Fury Road', 'Die Hard', 'John Wick', 'Venom', 'Blade Runner',
+        'Gladiator', 'The Dark Knight', 'Inception', 'The Bourne Identity',
+        'Terminator 2: Judgment Day', 'Fight Club', 'Casino Royale',
+        'Kill Bill: Vol. 1', 'The Matrix', 'Black Panther', 'Mission: Impossible - Fallout',
+        'Deadpool', 'Logan', 'Kingsman: The Secret Service', 'The Avengers',
+        'Spider-Man: Homecoming', 'Fury', 'Dunkirk', 'The Equalizer'
     ],
+    
     rastgele: [
-      'Bullet Train', 'Jumper', 'The Greatest Showman'
+      'Bullet Train', 'Jumper', 'The Greatest Showman','Bright', 'The Thing', 'Troy' , 'Tenet', 
+      'Butter Fly Effect', 'Hocus Pocus', "Dude Where's my Car", 'Tommy Boy', 'The Passion of the Christ',
+      'Naked', 'John Carter', 'Empire of the Sun' 
     ],
   };
 
@@ -94,10 +102,9 @@ const MovieSuggestions = ({ mood }) => {
       {movie ? (
         <div>
           <h2>Önerilen Film: {movie.title}</h2>
-          <h3>IMDB Puanı: {movie.imdb}</h3>
+          <h3>IMDB Puanı: {movie.imdb}</h3> <button onClick={handleGetNewSuggestion}>Yeni Öneri Al</button><br></br>
           <img src={movie.img} alt={movie.title} />
-          <br />
-          <button onClick={handleGetNewSuggestion}>Yeni Öneri Al</button>
+                   
         </div>
       ) : (
         <h2>Film önerisi alınıyor...</h2>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './components/styles/App.css';
 import MovieSuggestions from './components/MovieSuggestions';
-import logo from './popcorn.webp'
+import logo from './popcorn.png'
 
 const App = () => {
   const [mood, setMood] = useState('');

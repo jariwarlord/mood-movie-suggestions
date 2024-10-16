@@ -1,8 +1,9 @@
-// Error.js
+// src/components/Error.js
 import React from 'react';
+import './styles/Error.css';
 
 const Error = ({ message }) => {
-  return <h2 style={{ color: 'red' }}>{message}</h2>;
+    return message ? <h2 className="error">{message}</h2> : null;
 };
 
 export default Error;

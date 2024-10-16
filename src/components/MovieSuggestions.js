@@ -114,15 +114,10 @@ const MovieSuggestions = ({ mood }) => {
 
   return (
     <div>
-        <Background movie={movie} /> {/* Film arka planı bileşeni */}
-        {error && <h2 style={{ color: 'red' }}>{error}</h2>}
+        <Background movie={movie} />
+        <Error message={error} />
         {movie ? (
-            <div>
-                <h2>Önerilen Film: {movie.title}</h2>
-                <button onClick={handleGetNewSuggestion}>Yeni Öneri Al</button>
-                <h3>IMDB Puanı: {movie.imdb}</h3>
-                <img src={movie.img} alt={movie.title} />
-            </div>
+            <Movie movie={movie} onNewSuggestion={handleGetNewSuggestion} />
         ) : (
             <h2>Film önerisi alınıyor...</h2>
         )}

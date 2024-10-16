@@ -14,8 +14,7 @@ const MoodSelector = ({setMood}) => {
 
 return (
     <div>
-      <h2>Modunu Yaz: </h2>
-      <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
         <input
         type="text"
         value={userMood}

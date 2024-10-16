@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import MoodSelector from './components/MoodSelector';
+import MovieSuggestions from './components/MovieSuggestions';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App = () => {
+  const[mood, setMood] = useState(null);
+  return(
+    <div>
+      <h1>
+        Moduna Göre Film Önerileri
+         {/* MoodSelector bileşeni ile mood'u al */}
+      <MoodSelector setMood={setMood} />
+      
+      {/* Eğer mood seçildiyse, film önerilerini göster */}
+      {mood && <MovieSuggestions mood={mood} />}
+      </h1>
     </div>
-  );
+  )
 }
 
 export default App;

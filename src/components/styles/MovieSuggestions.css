@@ -17,7 +17,7 @@
   
   button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #2f67d8;
     color: white;
     border: none;
     border-radius: 5px;
@@ -27,27 +27,6 @@
   button:hover {
     background-color: #0056b3;
   }
-  .happy-background {
-    background-color: #ffeb3b; /* Mutlu film rengi */
-    color: #000; /* Yazı rengi */
-}
-
-.sad-background {
-    background-color: #2196f3; /* Hüzünlü film rengi */
-    color: #fff; /* Yazı rengi */
-}
-
-.action-background {
-    background-color: #f44336; /* Aksiyon film rengi */
-    color: #fff; /* Yazı rengi */
-}
-
-/* Anime arka plan rengi */
-.anime-background {
-    background-color: #673ab7; /* Anime film rengi */
-    color: #fff; /* Yazı rengi */
-}
-
 /* Genel stiller */
 .MovieSuggestions {
     padding: 20px; /* İçerik için boşluk */
@@ -62,23 +41,4 @@
     transition: background-color 0.5s ease;
   }
   
-  .mutlu {
-    background-color: #ffeb3b; /* Sarı */
-  }
-  
-  .hüzünlü {
-    background-color: #2196f3; /* Mavi */
-  }
-  
-  .aksiyon {
-    background-color: #f44336; /* Kırmızı */
-  }
-  
-  .rastgele {
-    background-color: #673ab7; /* Mor */
-  }
-  
-  .anime {
-    background-color: #4caf50; /* Yeşil */
-  }
   

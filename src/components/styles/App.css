@@ -38,5 +38,15 @@
 }
 body{
   background-color: #062664;
-  color: aliceblue;
+  color: #062664;
+  margin: 0;
+  height: 100vh; /* Ensure it covers the entire viewport height */
+  background: linear-gradient(to bottom, #062664, rgba(255, 255, 255, 1)); /* Dark to light */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color for contrast */
+}
+.button{
+  background-color: #062664;
 }

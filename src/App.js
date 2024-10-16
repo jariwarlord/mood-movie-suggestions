@@ -1,6 +1,6 @@
 // App.js
 import React, { useState } from 'react';
-import './App.css';
+import './components/styles/App.css';
 import MovieSuggestions from './components/MovieSuggestions';
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Film Önerisi için Modunu Yaz</h1>
+      <h3>Nasıl hissediyorsun?</h3>
       <input
         type="text"
         placeholder="'Aksiyon','Rastgele' .."

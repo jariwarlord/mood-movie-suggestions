@@ -69,6 +69,16 @@ const movieSuggestions = {
         'The Martian', 'Ready Player One', 'Looper',
         'Her', 'Annihilation'
     ],
+    sakin: [
+        'The Secret Life of Walter Mitty', 'The Pursuit of Happyness', 'Amélie', 
+        'Her', 'Into the Wild', 'A Beautiful Mind', 'The Grand Budapest Hotel',
+        'Lost in Translation', 'The Way Way Back', 'Moonlight', 'The Tree of Life', 
+        'Paterson', 'Little Miss Sunshine', 'Big Fish', 'The Florida Project', 
+        'Chef', 'The Straight Story', 'Call Me by Your Name', 'About Time', 
+        'Before Sunrise', 'The Terminal', 'Julie & Julia', 'The Intern', 
+        'Midnight in Paris'
+    ]
+    
 };
 
 export default movieSuggestions;

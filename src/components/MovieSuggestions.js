@@ -37,7 +37,9 @@ const MovieSuggestions = ({ mood }) => {
     } else if (mood.toLowerCase() === 'bilimkurgu') {
         movies = movieSuggestions.bilimkurgu;
     } else if (mood.toLowerCase() === 'romantizm') {
-        movies = movieSuggestions.romantizm;           
+        movies = movieSuggestions.romantizm;
+      } else if (mood.toLowerCase() === 'sakin') {
+        movies = movieSuggestions.sakin;             
     } else {
       setError('Lütfen geçerli bir mod yazın (mutlu, hüzünlü, aksiyon, rastgele).');
       return;
@@ -57,7 +59,6 @@ const MovieSuggestions = ({ mood }) => {
           title: data.Title,
           imdb: data.imdbRating,
           img: data.Poster,
-          plot: data.Plot,
         });
         setError(null); // Hata varsa sıfırlıyoruz
       } else {

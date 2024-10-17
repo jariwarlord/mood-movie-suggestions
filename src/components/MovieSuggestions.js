@@ -6,7 +6,7 @@ import Background from './Background';
 import movieSuggestions from './MovieList';
 
 
-const API_KEY = '69b08da2'; // API anahtarınızı buraya ekleyin
+const API_KEY = '69b08da2'; 
 
 const MovieSuggestions = ({ mood }) => {
   const [movie, setMovie] = useState(null);
@@ -38,8 +38,10 @@ const MovieSuggestions = ({ mood }) => {
         movies = movieSuggestions.bilimkurgu;
     } else if (mood.toLowerCase() === 'romantizm') {
         movies = movieSuggestions.romantizm;
-      } else if (mood.toLowerCase() === 'sakin') {
-        movies = movieSuggestions.sakin;             
+    } else if (mood.toLowerCase() === 'sakin') {
+        movies = movieSuggestions.sakin;  
+    } else if (mood.toLowerCase() === 'sehvetli') {
+        movies = movieSuggestions.sehvetli;           
     } else {
       setError('Lütfen geçerli bir mod yazın (mutlu, hüzünlü, aksiyon, rastgele).');
       return;

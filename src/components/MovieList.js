@@ -77,8 +77,16 @@ const movieSuggestions = {
         'Chef', 'The Straight Story', 'Call Me by Your Name', 'About Time', 
         'Before Sunrise', 'The Terminal', 'Julie & Julia', 'The Intern', 
         'Midnight in Paris'
-    ]
-    
+    ],
+    sehvetli: [
+        'Basic Instinct', 'Eyes Wide Shut', 'The Dreamers', 'Nymphomaniac', 
+        'Blue Is the Warmest Color', 'Fifty Shades of Grey', 'Call Me by Your Name', 
+        'Wild Orchid', 'In the Realm of the Senses', 'Secretary', 
+        'Unfaithful', 'Lust, Caution', 'Malèna', 'Body Heat', 
+        'Y Tu Mamá También', 'Love', 'Crash', '9½ Weeks', 
+        'Shame', 'The Piano Teacher', 'The Lover', 'The Handmaiden',
+        'Closer', 'Original Sin', 'Sleeping Beauty'
+    ], 
 };
 
 export default movieSuggestions;

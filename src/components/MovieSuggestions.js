@@ -1,57 +1,51 @@
-import './styles/MovieSuggestions.css';
 import React, { useState, useEffect } from 'react';
-import Movie from './Movie';
-import Error from './Error';
-import Background from './Background';
-import movieSuggestions from './MovieList';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from '../firebase.js';
+import Movie from './Movie.js';
+import Error from './Error.js';
+import Background from './Background.js';
 
-
-const API_KEY = '69b08da2'; 
+const API_KEY = '69b08da2'; // OMDB API key
 
 const MovieSuggestions = ({ mood }) => {
   const [movie, setMovie] = useState(null);
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // Loading state for better UX
 
   useEffect(() => {
     if (mood) {
-      getRandomMovie();
+      getMovieFromFirebase(); // Ruh hali değiştiğinde film getir
     }
   }, [mood]);
 
-  const getRandomMovie = async () => {
-    let movies = [];
-    
-    // Mood'a göre uygun film listesini seç
-    if (mood.toLowerCase() === 'mutlu') {
-      movies = movieSuggestions.mutlu;
-    } else if (mood.toLowerCase() === 'hüzünlü') {
-      movies = movieSuggestions.hüzünlü;
-    } else if (mood.toLowerCase() === 'aksiyon') {
-      movies = movieSuggestions.aksiyon;
-    } else if (mood.toLowerCase() === 'rastgele') {
-      movies = movieSuggestions.rastgele;
-    } else if (mood.toLowerCase() === 'anime') {
-        movies = movieSuggestions.anime;
-    } else if (mood.toLowerCase() === 'dram') {
-        movies = movieSuggestions.dram;    
-    } else if (mood.toLowerCase() === 'bilimkurgu') {
-        movies = movieSuggestions.bilimkurgu;
-    } else if (mood.toLowerCase() === 'romantizm') {
-        movies = movieSuggestions.romantizm;
-    } else if (mood.toLowerCase() === 'sakin') {
-        movies = movieSuggestions.sakin;  
-    } else if (mood.toLowerCase() === 'sehvetli') {
-        movies = movieSuggestions.sehvetli;           
-    } else {
-      setError('Lütfen geçerli bir mod yazın (mutlu, hüzünlü, aksiyon, rastgele).');
-      return;
+  const getMovieFromFirebase = async () => {
+    try {
+      setLoading(true); // Başlamadan önce loading state'i başlat
+      const q = query(collection(db, "movies"), where("mood", "==", mood.toLowerCase()));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        const movies = querySnapshot.docs.map(doc => doc.data().title); // Filmleri listeye ekliyoruz
+
+        // Random bir film seçiyoruz
+        const randomIndex = Math.floor(Math.random() * movies.length);
+        const movieTitle = movies[randomIndex];
+
+        // OMDB API'den film detaylarını getir
+        fetchMovieDetails(movieTitle);
+      } else {
+        setError('Belirtilen ruh hali için film bulunamadı.');
+        setMovie(null);
+        setLoading(false); // Yükleme bitti
+      }
+    } catch (err) {
+      setError('Veri çekerken bir hata oluştu. Lütfen tekrar deneyin.');
+      setMovie(null);
+      setLoading(false); // Hata durumunda yüklemeyi bitir
     }
+  };
 
-    // Rastgele bir film seç
-    const randomIndex = Math.floor(Math.random() * movies.length);
-    const movieTitle = movies[randomIndex];
-
-    // Seçilen filmi API'den al
+  const fetchMovieDetails = async (movieTitle) => {
     try {
       const response = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(movieTitle)}&apikey=${API_KEY}`);
       const data = await response.json();
@@ -62,31 +56,32 @@ const MovieSuggestions = ({ mood }) => {
           imdb: data.imdbRating,
           img: data.Poster,
         });
-        setError(null); // Hata varsa sıfırlıyoruz
+        setError(null);
       } else {
-        setError('Film bulunamadı.');
+        setError('OMDB API\'de film bulunamadı.');
         setMovie(null);
       }
+      setLoading(false); // Yükleme bitti
     } catch (error) {
-      setError('Bir hata oluştu. Lütfen tekrar deneyin.');
+      setError('Film detayları alınırken bir hata oluştu.');
+      setMovie(null);
+      setLoading(false); // Hata durumunda yüklemeyi bitir
     }
-  };
-
-  const handleGetNewSuggestion = () => {
-    getRandomMovie(); // Tekrar film önerisi al
   };
 
   return (
     <div>
-        <Background movie={movie} />
-        <Error message={error} />
-        {movie ? (
-            <Movie movie={movie} onNewSuggestion={handleGetNewSuggestion} />
-        ) : (
-            <h2>Film önerisi alınıyor...</h2>
-        )}
+      <Background movie={movie} />
+      <Error message={error} />
+      {loading ? (  // Yükleniyorsa "Film önerisi alınıyor" gösterecek
+        <h2>Film önerisi alınıyor...</h2>
+      ) : movie ? (  // Film varsa filmi göster
+        <Movie movie={movie} onNewSuggestion={getMovieFromFirebase} />  // Yeni öneri fonksiyonunu buraya bağladık
+      ) : (
+        <h2>Film önerisi bulunamadı.</h2>  // Film yoksa hata veya mesaj gösterecek
+      )}
     </div>
-);
+  );
 };
 
 export default MovieSuggestions;

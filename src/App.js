@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import './components/styles/App.css';
-import MovieSuggestions from './components/MovieSuggestions';
+import MovieSuggestions from './components/MovieSuggestions.js';
 import logo from './popcorn.png'
 
 const App = () => {

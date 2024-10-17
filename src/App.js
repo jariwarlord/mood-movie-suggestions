@@ -15,6 +15,11 @@ const App = () => {
   const handleSubmit = () => {
     setSubmittedMood(mood);
   };
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      handleSubmit();
+    }
+  };
 
   return (
     <div className="App">
@@ -28,6 +33,7 @@ const App = () => {
         placeholder="'Aksiyon','Rastgele' .."
         value={mood}
         onChange={handleInputChange}
+        onKeyPress = {handleKeyPress}
       />
       <br />
       <button onClick={handleSubmit}>Yolla</button>

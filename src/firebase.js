@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Firebase yapılandırma bilgileri
 const firebaseConfig = {
-    apiKey: "AIzaSyCyh0BydksRvTozYDFmXnqZwy3oZODNOi4",
+    apiKey: "AIzaSyBLZi6Df77HXoOujIM1yHME1wY5ATpuSvs",
     authDomain: "moviesuggestion-1edba.firebaseapp.com",
     projectId: "moviesuggestion-1edba",
     storageBucket: "moviesuggestion-1edba.appspot.com",

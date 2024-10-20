@@ -10,7 +10,7 @@ const API_KEY = '69b08da2'; // OMDB API key
 const MovieSuggestions = ({ mood }) => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false); // Loading state for better UX
+  const [loading, setLoading] = useState(false); 
 
   useEffect(() => {
     if (mood) {

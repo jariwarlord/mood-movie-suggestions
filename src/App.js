@@ -33,7 +33,7 @@ const App = () => {
         placeholder="'Aksiyon','Rastgele' .."
         value={mood}
         onChange={handleInputChange}
-        onKeyPress = {handleKeyPress}
+        onKeyPress = {handleKeyPress} // Enter'a bastığımız zaman aramayı onaylama
       />
       <br />
       <button onClick={handleSubmit}>Yolla</button>
